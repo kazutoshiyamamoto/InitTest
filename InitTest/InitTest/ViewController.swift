@@ -8,28 +8,22 @@
 
 import UIKit
 
-class MyClass {
-    // インスタンスプロパティ
-    let msg: String
-    let name: String
-    
-    // 指定イニシャライザ
-    init (msg:String, name:String) {
-        self.msg = msg
-        self.name = name
-    }
-    
-    // コンビニエンスイニシャライザ
-    convenience init (msg:String = "ハロー") {
-        self.init(msg:msg, name:"匿名")
-    }
-    
-    // インスタンスメソッド
-    func hello() {
-        let helloMsg = name + "さん" + msg
-        print(helloMsg)
+class Circle {
+    // 半径
+    var radius: Double = 1.0
+    // 面積
+    var area: Double {
+        // 面積を返す
+        get {
+            return radius * radius * Double.pi
+        }
+        // 面積を設定する（半径を設定する）
+        set(menseki) {
+            radius = sqrt(menseki / Double.pi)
+        }
     }
 }
+
 
 class ViewController: UIViewController {
 
@@ -37,14 +31,21 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        // MyClassクラスのインスタンスを作る
-        let myObj1 = MyClass()
-        let myObj2 = MyClass(msg: "こんにちは")
-        let myObj3 = MyClass(msg: "やあ！", name: "山田")
-        // hello()メソッドを実行する
-        myObj1.hello()
-        myObj2.hello()
-        myObj3.hello()
+        // 円を作る
+        let myCircle = Circle()
+        // 初期値の半径と面積
+        print("半径\(myCircle.radius)")
+        print("面積\(myCircle.area)")
+        
+        // 面積を２倍にする
+        myCircle.area *= 2
+        print("半径\(myCircle.radius)")
+        print("面積\(myCircle.area)")
+        
+        // 半径を3.0にする
+        myCircle.radius = 3.0
+        print("半径\(myCircle.radius)")
+        print("面積\(myCircle.area)")
     }
 
     override func didReceiveMemoryWarning() {
