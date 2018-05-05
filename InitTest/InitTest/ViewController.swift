@@ -11,15 +11,23 @@ import UIKit
 class MyClass {
     // インスタンスプロパティ
     let msg: String
+    let name: String
     
-    // イニシャライザ
-    init (msg: String = "ハロー") {
+    // 指定イニシャライザ
+    init (msg:String, name:String) {
         self.msg = msg
+        self.name = name
+    }
+    
+    // コンビニエンスイニシャライザ
+    convenience init (msg:String = "ハロー") {
+        self.init(msg:msg, name:"匿名")
     }
     
     // インスタンスメソッド
     func hello() {
-        print(msg)
+        let helloMsg = name + "さん" + msg
+        print(helloMsg)
     }
 }
 
@@ -29,10 +37,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        // MyClassクラスのインスタンスmyObjを作る
-        let myObj = MyClass(msg: "こんにちは")
+        // MyClassクラスのインスタンスを作る
+        let myObj1 = MyClass()
+        let myObj2 = MyClass(msg: "こんにちは")
+        let myObj3 = MyClass(msg: "やあ！", name: "山田")
         // hello()メソッドを実行する
-        myObj.hello()
+        myObj1.hello()
+        myObj2.hello()
+        myObj3.hello()
     }
 
     override func didReceiveMemoryWarning() {
