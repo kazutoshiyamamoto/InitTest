@@ -12,15 +12,9 @@ class Circle {
     // 半径
     var radius: Double = 1.0
     // 面積
-    var area: Double {
+    var area:Double {
         // 面積を返す
-        get {
-            return radius * radius * Double.pi
-        }
-        // 面積を設定する（半径を設定する）
-        set(menseki) {
-            radius = sqrt(menseki / Double.pi)
-        }
+        return radius * radius * Double.pi
     }
 }
 
@@ -31,21 +25,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        // 円を作る
         let myCircle = Circle()
-        // 初期値の半径と面積
-        print("半径\(myCircle.radius)")
-        print("面積\(myCircle.area)")
-        
-        // 面積を２倍にする
-        myCircle.area *= 2
-        print("半径\(myCircle.radius)")
-        print("面積\(myCircle.area)")
-        
-        // 半径を3.0にする
-        myCircle.radius = 3.0
-        print("半径\(myCircle.radius)")
-        print("面積\(myCircle.area)")
+        myCircle.radius = 10
+        let menseki = myCircle.area
+        print(menseki)
     }
 
     override func didReceiveMemoryWarning() {
