@@ -12,6 +12,11 @@ class MyClass {
     // インスタンスプロパティ
     let msg: String
     
+    // イニシャライザ
+    init (msg: String = "ハロー") {
+        self.msg = msg
+    }
+    
 }
 
 
