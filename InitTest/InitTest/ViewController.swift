@@ -30,7 +30,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        
+        // MyClassのインスタンス
+        let myObj = MyClass(msg: "こんにちは")
+        myObj.hello()
     }
     
     override func didReceiveMemoryWarning() {
