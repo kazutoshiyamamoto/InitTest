@@ -17,6 +17,10 @@ class MyClass {
         self.msg = msg
     }
     
+    // インスタンスメソッド
+    func hello() {
+        print(msg)
+    }
 }
 
 
